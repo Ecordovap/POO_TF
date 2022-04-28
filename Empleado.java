@@ -1,28 +1,29 @@
-package ProyectoGrupal;
+package CalculadoraPlanilla;
 
 public abstract class Empleado {
-    private int dni;
+    private int DNI;
     private String nombreCompleto;
     private String departamento;
-    private int dniLider;
+    private int DNILider;
     private boolean esLider;
     private int volumenPP;
     private int volumenSS;
-    private int ur;
+    private int UR;
 
-    public Empleado(int dni, String nombreCompleto, String departamento, int dniLider, boolean esLider, int volumenPP, int volumenSS, int ur) {
-        this.dni = dni;
+    public Empleado(int DNI, String nombreCompleto, String departamento, int DNILider, boolean esLider,
+                    int volumenPP, int volumenSS, int UR) {
+        this.DNI = DNI;
         this.nombreCompleto = nombreCompleto;
         this.departamento = departamento;
-        this.dniLider = dniLider;
+        this.DNILider = DNILider;
         this.esLider = esLider;
         this.volumenPP = volumenPP;
         this.volumenSS = volumenSS;
-        this.ur = ur;
+        this.UR = UR;
     }
 
-    public int getDni() {
-        return dni;
+    public int getDNI() {
+        return DNI;
     }
 
     public String getNombreCompleto() {
@@ -33,8 +34,8 @@ public abstract class Empleado {
         return departamento;
     }
 
-    public int getDniLider() {
-        return dniLider;
+    public int getDNILider() {
+        return DNILider;
     }
 
     public boolean isEsLider() {
@@ -49,10 +50,11 @@ public abstract class Empleado {
         return volumenSS;
     }
 
-    public int getUr() {
-        return ur;
+    public int getUR() {
+        return UR;
     }
 
     public abstract double calcularPlanilla();
     public abstract void imprimirEmpleado();
+
 }
