@@ -1,0 +1,6 @@
+Pendientes:
+- Arreglar Backoffice -> Camila
+- Agregar más instancias (12) -> Camila
+- Bono por equipo
+- Menu -> Camila
+- Agregar excepciones (3-4)
