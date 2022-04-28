@@ -1,11 +1,12 @@
-package Grupo3;
+package CalculadoraPlanilla;
 
 public class Backoffice extends Empleado{
     private String cargo;
     private double antiguedad;
 
-    public Backoffice(int dni, String nombreCompleto, String departamento, int dniLider, boolean esLider, int volumenPP, int volumenSS, int ur, String cargo, double antiguedad) {
-        super(dni, nombreCompleto, departamento, dniLider, esLider, volumenPP, volumenSS, ur);
+    public Backoffice(int DNI, String nombreCompleto, String departamento, int DNILider, boolean esLider,
+                      String cargo, double antiguedad) {
+        super(DNI, nombreCompleto, departamento, DNILider, esLider, 0,0,0);
         this.cargo = cargo;
         this.antiguedad = antiguedad;
     }
@@ -22,19 +23,20 @@ public class Backoffice extends Empleado{
     }
 
     public double pagoPorAntiguedad(){
-        if (antiguedad >= 2 && antiguedad <4) return 50;
-        else if (antiguedad >= 4 && antiguedad <5) return 100;
-        else if (antiguedad >= 5) return 200;
+        if(antiguedad >=2 && antiguedad <4) return 50;
+        else if(antiguedad >= 4 && antiguedad < 5) return 100;
+        else if(antiguedad >=5) return 200;
         return 0;
     }
 
     @Override
     public double calcularPlanilla() {
-        return pagoPorCargo()+pagoPorAntiguedad();
+        return pagoPorCargo() + pagoPorAntiguedad();
     }
 
     @Override
     public void imprimirEmpleado() {
-        System.out.println("Tipo Backoffice - DNI: "+getDni()+ " , Nombre: "+getNombreCompleto()+ " , Pago planilla: "+calcularPlanilla());
+        System.out.println("Tipo Backoffice - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Cargo: " + cargo +
+                ", Pago planilla: " + calcularPlanilla());
     }
 }
