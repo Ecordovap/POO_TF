@@ -114,6 +114,17 @@ public class Main {
                     System.out.println();
                 }
             }
+            else{
+                try{
+                    listaPlanilla.listarEmpleadoPorTipo(tipoParaBuscar);
+                }
+                catch(ExcepcionIngresoPlanilla ex){
+                    System.out.println(ex.getMessage());
+                }
+                finally {
+                    System.out.println();
+                }
+            }
         }
         else if (opcion == 4) {
             try {
