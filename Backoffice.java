@@ -11,14 +11,17 @@ public class Backoffice extends Empleado{
         this.antiguedad = antiguedad;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
     public double pagoPorCargo(){
         double auxPagoPlanilla = 0;
-        switch (cargo){
-            case "Analista": auxPagoPlanilla = 3000;
-            case "Coordinador": auxPagoPlanilla = 5000;
-            case "KAM": auxPagoPlanilla = 7000;
-            case "Gerente": auxPagoPlanilla = 9000;
-        }
+        if(cargo.equals("Analista")) auxPagoPlanilla = 3000;
+        else if(cargo.equals("Coordinador")) auxPagoPlanilla = 5000;
+        else if(cargo.equals("KAM")) auxPagoPlanilla = 7000;
+        else if(cargo.equals("Gerente")) auxPagoPlanilla = 9000;
+
         return auxPagoPlanilla;
     }
 
@@ -36,7 +39,7 @@ public class Backoffice extends Empleado{
 
     @Override
     public void imprimirEmpleado() {
-        System.out.println("Tipo Backoffice - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Cargo: " + cargo +
+        System.out.println("Tipo Backoffice - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Cargo: " + cargo + ", Departamento: " + getDepartamento() +
                 ", Pago planilla: " + calcularPlanilla());
     }
 }

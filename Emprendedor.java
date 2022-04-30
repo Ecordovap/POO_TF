@@ -19,7 +19,9 @@ public class Emprendedor extends Empleado{
     }
 
     public void calcularEscala(){
-        LocalDate fechaDeHoy = LocalDate.now();
+        /*LocalDate fechaDeHoy = LocalDate.now();
+        int añoHoy = fechaDeHoy.getYear();
+        int mesHoy = fechaDeHoy.getMonthValue();*/
         if(getVolumenPP() >= 222 && getUR() >= 122 && getVolumenSS() >= 34)
             escala = "E5";
         else if(getVolumenPP() >= 207 && getUR() >= 114 && getVolumenSS() >= 30)
@@ -30,8 +32,7 @@ public class Emprendedor extends Empleado{
             escala = "E2";
         else if(getVolumenPP() >= 106 && getUR() >= 58 && getVolumenSS() >= 14)
             escala = "E1";
-        else if(getVolumenPP() >= 63 && getUR() >= 35 && getVolumenSS() >= 12 &&
-                fechaDeHoy.getYear()==añoCreacion && fechaDeHoy.getMonthValue()==mesCreacion) //No puede tener E0 un código antiguo
+        else if(getVolumenPP() >= 63 && getUR() >= 35 && getVolumenSS() >= 12)
             escala =  "E0";
         else
             escala = "Sin Escala";
@@ -67,7 +68,7 @@ public class Emprendedor extends Empleado{
 
     @Override
     public void imprimirEmpleado() {
-        System.out.println("Tipo Emprendedor - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Escala: " + escala +
+        System.out.println("Tipo Emprendedor - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Escala: " + escala + ", Departamento: " + getDepartamento() +
                 ", Pago planilla: " + calcularPlanilla());
     }
 }

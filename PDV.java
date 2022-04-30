@@ -35,7 +35,7 @@ public class PDV extends Empleado{
 
     @Override
     public void imprimirEmpleado() {
-        System.out.println("Tipo PDV - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Clasificacion: " + calcularClasificacion() +
+        System.out.println("Tipo PDV - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Clasificacion: " + calcularClasificacion() +  ", Departamento: " + getDepartamento() +
                 ", Pago planilla: " + calcularPlanilla());
     }
 }
