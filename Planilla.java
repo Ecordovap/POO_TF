@@ -1,5 +1,6 @@
 package CalculadoraPlanilla;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Planilla {
@@ -77,6 +78,61 @@ public class Planilla {
             throw new ExcepcionIngresoPlanilla("No existen empleados del departamento " + dpto + ".");
     }
 
+    public void calcularResumen(){
+        double planillaEmprendedor = 0;
+        double planillaPDV = 0;
+        double planillaBackoffice = 0;
+        for(Empleado e: planillaCompleta){
+            if(e instanceof Emprendedor)
+                planillaEmprendedor = planillaEmprendedor + e.calcularPlanilla();
+            if(e instanceof PDV)
+                planillaPDV = planillaPDV + e.calcularPlanilla();
+            if(e instanceof Backoffice)
+                planillaBackoffice = planillaBackoffice + e.calcularPlanilla();
+        }
+
+        double planillaTotal = planillaBackoffice+planillaPDV+planillaEmprendedor;
+
+        System.out.println("Planilla por tipo: ");
+        System.out.println("Total emprendedor: S/" + planillaEmprendedor);
+        System.out.println("Total PDV: S/" + planillaPDV);
+        System.out.println("Total Backoffice: S/" + planillaBackoffice);
+        System.out.println("Total general: S/"+ planillaTotal);
+
+    }
+
+    public void calcularPlanillaPorDpto(){
+        String dptoDelMomento;
+        double planillaDpto = 0 ;
+        int flag = 0;
+
+        ArrayList<String> departamentosRepetidos;
+        departamentosRepetidos = new ArrayList<>();
+
+        System.out.println("Planilla por departamento: ");
+
+        for (Empleado e: planillaCompleta){
+            dptoDelMomento = e.getDepartamento();
+            for(String d:departamentosRepetidos){
+                if(d.equals(dptoDelMomento)){
+                    flag = 1;
+                }
+            }
+            if(flag == 0) {
+                for (Empleado p : planillaCompleta) {
+                    if (p.getDepartamento().equals(dptoDelMomento)) {
+                        planillaDpto = planillaDpto + p.calcularPlanilla();
+                    }
+                }
+                System.out.println(dptoDelMomento + ": S/" + planillaDpto);
+                departamentosRepetidos.add(dptoDelMomento);
+
+            }
+            planillaDpto = 0;
+            flag = 0;
+
+        }
+    }
 
 
 }

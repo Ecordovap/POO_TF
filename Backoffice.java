@@ -40,6 +40,6 @@ public class Backoffice extends Empleado{
     @Override
     public void imprimirEmpleado() {
         System.out.println("Tipo Backoffice - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Cargo: " + cargo + ", Departamento: " + getDepartamento() +
-                ", Pago planilla: " + calcularPlanilla());
+                ", Pago planilla: S/" + calcularPlanilla());
     }
 }

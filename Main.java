@@ -42,11 +42,12 @@ public class Main {
 
         System.out.println("Sistema de Registro de Planilla del Canal Masivo Entel");
         System.out.println("Elija una opción:");
-        System.out.println("1 - Listar todos los empleados pertenecientes a la planilla.");
-        System.out.println("2 - Búsqueda de un empleado por DNI.");
-        System.out.println("3 - Listar empleados por tipo.");
-        System.out.println("4 - Listar empleados por departamento.");
-        System.out.println("5 - Calcular total a pagar en la planilla.");
+        System.out.println("1 - Listar todos los empleados pertenecientes a la planilla");
+        System.out.println("2 - Búsqueda de un empleado por DNI");
+        System.out.println("3 - Listar empleados por tipo");
+        System.out.println("4 - Listar empleados por departamento");
+        System.out.println("5 - Calcular planilla por tipo");
+        System.out.println("6 - Calcular planilla por departamento");
 
         Scanner input = new Scanner(System.in);
         int opcion = input.nextInt();
@@ -59,8 +60,6 @@ public class Main {
             int dniParaBuscar = input.nextInt();
             //Búsqueda de un dni en Planilla
             try {
-                //Empleado e = listaPlanilla.buscaEmpleado(76534586); //Caso que sí funciona
-                //Empleado e = listaPlanilla.buscaEmpleado(73648584); //Caso que no funciona
                 Empleado e = listaPlanilla.buscaEmpleado(dniParaBuscar);
                 System.out.println("Resultado de Búsqueda de DNI: ");
                 e.imprimirEmpleado();
@@ -136,7 +135,9 @@ public class Main {
             }
         }
         else if(opcion == 5){
-            System.out.println("Costo total de planilla: " + listaPlanilla.calcularTotalPlanilla());
+            listaPlanilla.calcularResumen();
         }
+        else if (opcion == 6)
+            listaPlanilla.calcularPlanillaPorDpto();
     }
 }

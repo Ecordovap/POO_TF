@@ -1,7 +1,5 @@
 package CalculadoraPlanilla;
 
-import java.time.LocalDate;
-
 public class Emprendedor extends Empleado{
     private String escala;
     private int mesCreacion;
@@ -19,9 +17,6 @@ public class Emprendedor extends Empleado{
     }
 
     public void calcularEscala(){
-        /*LocalDate fechaDeHoy = LocalDate.now();
-        int añoHoy = fechaDeHoy.getYear();
-        int mesHoy = fechaDeHoy.getMonthValue();*/
         if(getVolumenPP() >= 222 && getUR() >= 122 && getVolumenSS() >= 34)
             escala = "E5";
         else if(getVolumenPP() >= 207 && getUR() >= 114 && getVolumenSS() >= 30)
@@ -69,6 +64,6 @@ public class Emprendedor extends Empleado{
     @Override
     public void imprimirEmpleado() {
         System.out.println("Tipo Emprendedor - DNI: " + getDNI() + ", Nombre: " + getNombreCompleto() + ", Escala: " + escala + ", Departamento: " + getDepartamento() +
-                ", Pago planilla: " + calcularPlanilla());
+                ", Pago planilla: S/" + calcularPlanilla());
     }
 }
